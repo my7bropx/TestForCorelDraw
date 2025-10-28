@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Target Framework: .NET 6.0 Windows - Modern, stable, works with COM -->
+    <TargetFramework>net6.0-windows</TargetFramework>
+
+    <!-- Enable Windows Forms support -->
+    <UseWindowsForms>true</UseWindowsForms>
+
+    <!-- Application is a Windows executable, not a library -->
+    <OutputType>WinExe</OutputType>
+
+    <!-- Enable nullable reference types for better code safety -->
+    <Nullable>enable</Nullable>
+
+    <!-- Application metadata -->
+    <AssemblyName>CorelSmartFill</AssemblyName>
+    <RootNamespace>CorelSmartFill</RootNamespace>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+
+    <!-- Version information -->
+    <Version>1.0.0</Version>
+    <Authors>Your Name</Authors>
+    <Company>Your Company</Company>
+    <Product>CorelDRAW Smart Fill Tool</Product>
+    <Description>Intelligent curve filling tool for CorelDRAW with real-time density control</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- COM Interop for CorelDRAW automation -->
+    <!-- This allows C# to communicate with CorelDRAW via COM -->
+    <COMReference Include="CorelDRAW">
+      <Guid>{00000000-0000-0000-0000-000000000000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- NuGet packages we'll use -->
+    <!-- System.Drawing.Common: For graphics and geometry operations -->
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>
